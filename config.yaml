@@ -1,4 +1,4 @@
-baseURL: "/"
+baseURL: "https://pubean.com"
 languageCode: "en"
 title: "Pubean Inc."
 theme: "hugo-startup"
