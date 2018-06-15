@@ -17,7 +17,7 @@
 
   /* Site Header */
   --sh-fg: var(--white);
-  --sh-bg: var(--black);
+  --sh-bg: color(var(--black) alpha(90%));
   --sh-secondary: color(var(--sh-fg) alpha(45%));
   --sh-box-shadow: 0 0.5rem 1rem color(var(--black) alpha(5%)), inset 0 -1px 0 color(var(--black) alpha(10%));
 
@@ -35,7 +35,7 @@
 
   /* Site Footer */
   --sf-fg: var(--white);
-  --sf-bg: var(--black);
+  --sf-bg: var(--sh-bg);
   --sf-secondary: color(var(--sh-fg) alpha(65%));
   --sf-slash: color(var(--sh-fg) alpha(45%));
 
