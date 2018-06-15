@@ -1,0 +1,8 @@
+.DS_Store
+.eslintcache
+npm-debug.log
+yarn-error.log
+node_modules
+public
+resources
+!.gitignore

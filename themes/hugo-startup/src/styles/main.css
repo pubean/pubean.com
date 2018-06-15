@@ -1,0 +1,36 @@
+@import 'partials/reset.css';
+@import 'partials/variables.css';
+@import 'partials/animation.css';
+@import 'partials/header.css';
+@import 'partials/services.css';
+@import 'partials/products.css';
+@import 'partials/footer.css';
+
+body {
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  color: var(--fg);
+  font-family: var(--family-sans-serif);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+
+  @media (--retina-screen) {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.offscreen {
+  position: absolute;
+  left: -1024rem;
+  width: 1px;
+  height: 1px;
+}
+
+.svg-sprites {
+  display: none;
+}
+
+::selection {
+  background-color: var(--selection);
+}

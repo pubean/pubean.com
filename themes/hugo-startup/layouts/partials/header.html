@@ -1,0 +1,18 @@
+<header class="site-header">
+    <div class="site-header__container">
+      <h1 class="site-header__title">{{ .Site.Title }}</h1>
+      <p class="site-header__subtitle">{{ .Site.Params.subtitle }}</p>
+    </div>
+    <nav class="site-header__menu">
+      <h2 class="offscreen">Menu</h2>
+      <ul>{{ $currentPage := . }}
+        {{ range .Site.Menus.main }}<li{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} class="is-active"{{ end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+    <div class="site-header__indicator">
+      <svg class="icon icon-down" height="24" viewBox="0 0 768 768" width="24">
+        <use xlink:href="#icon-down"></use>
+      </svg>
+    </div>
+  </header>

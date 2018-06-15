@@ -1,0 +1,51 @@
+:root {
+  /* Colors */
+  --white: #fff;
+  --black: #000;
+  --green: #02b875;
+  --green-light: #e9fef0;
+  --fg: var(--black);
+  --bg: var(--white);
+  --selection: var(--green-light);
+  --border-light: color(var(--black) alpha(10%));
+
+  /* Fonts */
+  --family-latin: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue";
+  --family-cjk: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "WenQuanYi Micro Hei";
+  --family-sans-serif: -apple-system, BlinkMacSystemFont, var(--family-latin), var(--family-cjk), SimSun, Helvetica, Arial, sans-serif;
+  --family-monospace: "Roboto Mono", "Fira Mono", "Source Code Pro", "Oxygen Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
+
+  /* Site Header */
+  --sh-fg: var(--white);
+  --sh-bg: var(--black);
+  --sh-secondary: color(var(--sh-fg) alpha(45%));
+  --sh-box-shadow: 0 0.5rem 1rem color(var(--black) alpha(5%)), inset 0 -1px 0 color(var(--black) alpha(10%));
+
+  /* Services */
+  --services-fg: color(var(--black) alpha(45%));
+  --services-bg: var(--white);
+  --services-fg-hover: var(--black);
+  --services-bg-hover: color(var(--black) alpha(10%));
+
+  /* Products */
+  --products-fg: var(--black);
+  --products-bg: var(--white);
+  --products-secondary: color(var(--products-fg) alpha(45%));
+  --products-box-shadow: 0 1rem 2rem 0 color(var(--black) alpha(10%));
+
+  /* Site Footer */
+  --sf-fg: var(--white);
+  --sf-bg: var(--black);
+  --sf-secondary: color(var(--sh-fg) alpha(65%));
+  --sf-slash: color(var(--sh-fg) alpha(45%));
+
+  /* Misc */
+  --width: 60rem;
+  --easing-fadein: cubic-bezier(0.82, 0, 0.12, 1);
+  --easing-fadein-down: cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* Custom Media Queries */
+@custom-media --mobile-viewport (max-width: 40rem);
+@custom-media --desktop-viewport (min-width: 40rem);
+@custom-media --retina-screen (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi);

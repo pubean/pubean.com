@@ -1,0 +1,12 @@
+{{- $cover := .Resources.GetMatch "resources/cover.*" -}}
+
+<article class="product__entry">
+        <div class="product__container">
+          <div class="product__info">
+            <h3 class="product__title">{{ .Title }}</h3>
+            <p class="product__description">{{ if isset .Params "description" }}{{ .Params.description }}{{ else }}{{ trim (.Summary | plainify | htmlUnescape) "\n" }}{{ end }}</p>
+            <a class="product__readmore" href="{{ if isset .Params "site" }}{{ .Params.site }}{{ else }}{{ .Permalink }}{{ end }}">View Product</a>
+          </div>
+          {{ if $cover }}<img class="product__cover grayscale" src="{{ $cover.RelPermalink }}" alt="{{ $cover.Title }}" />{{ else }}<img class="product__cover" src="{{ "/img/placeholder.png" | relURL }}" alt="Cover Picture of {{ .Title }}" />{{ end }}
+        </div>
+      </article>

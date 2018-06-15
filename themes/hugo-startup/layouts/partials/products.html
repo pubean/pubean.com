@@ -1,0 +1,17 @@
+<section id="products" class="products">
+    <h2 class="offscreen">Products</h2>
+    <div class="products__list">
+      {{ $products :=  (where .Data.Pages.ByWeight.Reverse "Type" "products") }}
+      {{ if $products }}{{ range first 10 $products }}
+      {{ .Render "summary" }}{{- end -}}
+      {{ else }}<div class="products__container">
+        <p>Create your first product</p>
+        <p><code>$ hugo new products/product-name.md</code></p>
+        <br>
+        <p>Create your first product (folder) with resources</p>
+        <p><code>$ hugo new products/product-name/index.md</code></p>
+        <p><code>$ cd products/product-name && mkdir resources</code></p>
+      </div>
+      {{ end }}
+    </div>
+  </section>

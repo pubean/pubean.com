@@ -1,0 +1,55 @@
+baseURL: "/"
+languageCode: "en"
+title: "Pubean Inc."
+theme: "hugo-startup"
+pygmentsStyle: "monokai"
+googleAnalytics: "UA-99107869-1"
+sectionPagesMenu: "main"
+metaDataFormat: "yaml"
+newContentEditor: "subl"
+hasCJKLanguage: true
+disableHugoGeneratorInject: true
+enableRobotsTXT: true
+
+menu:
+  main:
+    - name: "Home"
+      identifier: "home"
+      url: "/"
+      weight: 10
+    - name: "Products"
+      identifier: "products"
+      url: "#products"
+      weight: 20
+    - name: "Blog"
+      identifier: "blog"
+      url: "https://medium.com/pubean"
+      weight: 30
+    - name: "Contact"
+      identifier: "contact"
+      url: "mailto:hello@pubean.com"
+      weight: 40
+
+params:
+  color: "#02b875"
+  logo: "/img/logo.png"
+  cover: "/img/cover.jpg"
+  # cover: "//source.unsplash.com/random/1600x900"
+  subtitle: "Make things more interesting"
+  description: "We are Pubean Inc, IT geek team from Nanjing, China. We provide professional IT solutions for your business, from project planning to growth hacking, from product design to development."
+  googleSiteVerification: "AXeY2RWl9scrD4FvQ6eL2jIXa89mNHUHalWwSr9N_bs"
+  icp: "苏ICP备16005986号-1"
+
+  author:
+    name: "Ritchie Zhu"
+    email: "hello@pubean.com"
+    github: "pubean"
+    medium: "pubean"
+    twitter: "pubeaninc"
+
+  cdn:
+    host:
+      jsdelivr: "//cdn.jsdelivr.net"
+      googleanalytics: "//www.google-analytics"
+      # unsplashSource: "//source.unsplash.com"
+      # unsplashImages: "//images.unsplash.com"

@@ -1,0 +1,97 @@
+{{- $color := .Site.Params.color -}}
+{{- $logo := .Site.Params.logo -}}
+{{- $cover := .Site.Params.cover -}}
+
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <!-- DNS Prefetch -->
+  {{ with .Site.Params.cdn.host }}{{- range . -}}
+  <link rel="dns-prefetch" href="{{ . }}">
+  {{ end }}{{- end -}}
+  <!-- Page Title -->
+  <title>{{ block "title" . }}{{ .Site.Title }}{{ with .Site.Params.subtitle }} | {{ . }}{{ end }}{{ end }}</title>
+  <!-- Preload & Prefetch -->
+  <link rel="preload" href="{{ index .Site.Data.manifest "bundle.css" | relURL }}" as="style">
+  {{ with .Site.Params.cdn.css }}{{ range . }}<link rel="preload" href="{{ . }}" as="style">
+  {{ end }}{{ end }}<link rel="preload" href="{{ $cover | relURL }}" as="image">
+  <!-- Rending Prefs -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <!-- SEO Prefs -->
+  <meta name="robots" content="index,follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerification }}">
+  <!-- Site Info -->
+  <meta name="author" content="{{ .Site.Params.author.name }}">
+  <meta name="generator" content="Hugo {{ .Hugo.Version }}">
+  <meta name="theme-color" content="{{ $color }}">
+  <meta name="application-name" content="{{ .Site.Title }}">
+  <meta name="description" content="{{ .Site.Params.description }}">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ .Site.Title }}">
+  <meta name="twitter:description" content="{{ .Site.Params.description }}">
+  <meta name="twitter:image" content="{{ $logo | absURL }}">
+  <meta name="twitter:image:alt" content="Logo of {{ .Site.Title }}">
+  <meta name="twitter:site" content="@{{ .Site.Params.author.twitter | default "gohugoio" }}">
+  <meta name="twitter:creator" content="{{ .Site.Params.author.name }}">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ .Site.Title }}">
+  <meta property="og:description" content="{{ .Site.Params.description }}">
+  <meta property="og:image" content="{{ $cover | absURL }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:locale" content="{{ .Site.Language.Lang }}">
+  <meta property="og:updated_time" content="{{ .Site.LastChange.Format "2006-01-02T15:04:05-07:00" }}">
+  <!-- Favicon and Touch icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}">
+  <meta name="msapplication-tooltip" content="{{ .Site.Title }}">
+  <meta name="msapplication-TileColor" content="{{ $color }}">
+  <meta name="msapplication-TileImage" content="{{ "/img/logo-144.png" | relURL }}">
+  <link rel="icon" type="image/png" href="{{ "/img/logo-16.png" | relURL }}" sizes="16x16">
+  <link rel="icon" type="image/png" href="{{ "/img/logo-32.png" | relURL }}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ "/img/logo-96.png" | relURL }}" sizes="96x96">
+  <link rel="icon" type="image/png" href="{{ "/img/logo-128.png" | relURL }}" sizes="128x128">
+  <link rel="icon" type="image/png" href="{{ "/img/logo-196.png" | relURL }}" sizes="196x196">
+  <link rel="icon" type="image/png" href="{{ "/img/logo-228.png" | relURL }}" sizes="228x228">
+  <link rel="apple-touch-icon" href="{{ "/img/logo-120.png" | relURL }}">
+  <link rel="apple-touch-icon" href="{{ "/img/logo-152.png" | relURL }}" sizes="152x152">
+  <link rel="apple-touch-icon" href="{{ "/img/logo-180.png" | relURL }}" sizes="180x180">
+  <link rel="apple-touch-icon" href="{{ "/img/logo-167.png" | relURL }}" sizes="167x167">
+  <!-- Permalink -->
+  <link rel="canonical" href="{{ .Permalink }}">
+  <!-- Polyfill for old browsers -->
+  {{ `<!--[if lt IE 9]>
+  <script src="//cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js"></script>
+  <![endif]-->` | safeHTML }}
+  <!-- Styles -->
+  {{ with .Site.Params.cdn.css }}{{ range . }}<link rel="stylesheet" href="{{ . }}">
+  {{ end }}{{ end }}<link rel="stylesheet" href="{{ index .Site.Data.manifest "bundle.css" | relURL }}">
+  <style>
+    .site-header { background-image: linear-gradient(rgba(0, 0,0, 0.65), rgba(0, 0,0, 0.65)), url('{{ $cover }}'); }
+  </style>
+  <!-- Google Analytics -->
+  {{ with .Site.GoogleAnalytics }}<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{ . }}');
+  </script>{{ end }}
+</head>
+<body>
+<main class="is-{{ .Kind }} is-{{ .Type }}">
+{{- block "main" . -}}{{- end -}}
+</main>
+</body>
+</html>
