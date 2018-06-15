@@ -1,0 +1,5 @@
+User-agent: *
+{{ range (where .Data.Pages.ByWeight.Reverse "Type" "products") }}
+Disallow: {{ .RelPermalink }}{{ end }}
+
+Sitemap: {{ "sitemap.xml" | absURL }}
