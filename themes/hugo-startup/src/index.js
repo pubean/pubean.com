@@ -5,9 +5,12 @@ const shMenu = document.querySelector('.site-header__menu');
 const shContainer = document.querySelector('.site-header__container');
 const shIndicator = document.querySelector('.site-header__indicator');
 const services = document.querySelector('.services');
-const scrollToHash = new SmoothScroll('a[href*="#"]');
 
-// Toggle visibility of element with given threshold.
+/* eslint-disable no-unused-vars */
+const scrollToHash = new SmoothScroll('a[href*="#"]');
+/* eslint-enable */
+
+/* Toggle classname of element with given indicator's threshold. */
 const toggleDisplay = (element, indicator, threshold, classname) => {
   if (indicator.getBoundingClientRect().top < threshold) element.classList.add(classname);
   else element.classList.remove(classname);
@@ -15,7 +18,6 @@ const toggleDisplay = (element, indicator, threshold, classname) => {
 
 if (shMenu && shContainer && shIndicator) {
   let ticking = false;
-
   window.addEventListener('scroll', () => {
     if (!ticking) {
       window.requestAnimationFrame(() => {
