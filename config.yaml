@@ -7,6 +7,7 @@ googleAnalytics: "UA-99107869-1"
 sectionPagesMenu: "main"
 metaDataFormat: "yaml"
 newContentEditor: "subl"
+disableKinds: ["RSS", "taxonomy", "taxonomyTerm"]
 hasCJKLanguage: true
 disableHugoGeneratorInject: true
 enableRobotsTXT: true
@@ -46,6 +47,7 @@ params:
     github: "pubean"
     medium: "pubean"
     twitter: "pubeaninc"
+    fb_app_id: "220758238716482"
 
   cdn:
     host:

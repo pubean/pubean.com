@@ -16,6 +16,7 @@
   <link rel="preload" href="{{ index .Site.Data.manifest "bundle.css" | relURL }}" as="style">
   {{ with .Site.Params.cdn.css }}{{ range . }}<link rel="preload" href="{{ . }}" as="style">
   {{ end }}{{ end }}<link rel="preload" href="{{ $cover | relURL }}" as="image">
+  <link rel="preload" href="{{ index .Site.Data.manifest "bundle.js" | relURL }}" as="script">
   <!-- Rending Prefs -->
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
@@ -41,6 +42,7 @@
   <meta name="twitter:site" content="@{{ .Site.Params.author.twitter | default "gohugoio" }}">
   <meta name="twitter:creator" content="{{ .Site.Params.author.name }}">
   <!-- Open Graph -->
+  {{ with .Site.Params.author.fb_app_id }}<meta property="fb:app_id" content="{{ . }}">{{ end }}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ .Site.Title }}">
   <meta property="og:description" content="{{ .Site.Params.description }}">
